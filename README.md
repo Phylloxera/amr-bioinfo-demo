@@ -68,20 +68,46 @@ gunzip *
 cd $wd/webinar
 ```
 ## RUN THE PIPELINE
-``
-#additional required arguments for version 1 is -I since input type is contigs
-#additional required arguments for running on atlas are
-#-q queue (also called partitions) https://www.hpc.msstate.edu/computing/atlas/
-#-a account The same as your scinet project name https://scinet.usda.gov/guides/data/storage#project-directories
-#-c cores The number of cores per node on atlas is lower than the pipeline default 
-#https://scinet.usda.gov/guides/use/resource-allocation#allocation-of-cores
-#these arguments are all passed to sbatch https://scinet.usda.gov/guides/use/slurm
-$HOME/software/GEAbash -i data/ecoli1,data/senterica1 -I contigs -q atlas -a gaur_genome_assembly -c 48 #run the pipeline on the two folders.
-#record batch number and time
-#available input types are paired-fqgz (default), contigs, 6 long read types: nano-raw, nano-corr, nano-hq, pacbio-raw, pacbio-corr, 
-#pacbio-hifi (unassembled long read sequencing in FASTA or FASTQ format, gz compressed or uncompressed)
-``
+* an additional required argument for GEA pipeline version 1 is `-I` since input type is contigs
+* additional required arguments for running on atlas (all passed to sbatch https://scinet.usda.gov/guides/use/slurm) are
+* `-q` queue (also called partitions) https://www.hpc.msstate.edu/computing/atlas/
+* `-a` account The same as your scinet project name https://scinet.usda.gov/guides/data/storage#project-directories
+* `-c` cores The number of cores per node on atlas is lower than the pipeline default https://scinet.usda.gov/guides/use/resource-allocation#allocation-of-cores
+
+`$HOME/software/GEAbash -i $wd/webinar/data/ecoli1,$wd/webinar/data/senterica1 -I contigs -q atlas -a gaur_genome_assembly -c 48`
+
+* run the pipeline on the two folders
+* record batch number and time
+* available input types are `paired-fqgz` (default), `contigs`, 6 long read types: `nano-raw`, `nano-corr`, `nano-hq`, `pacbio-raw`, `pacbio-corr`, `pacbio-hifi` (unassembled long read sequencing in FASTA or FASTQ format, gz compressed or uncompressed)
 ## GET INFORMATION FROM THE RUN
 ``
-scontrol show job <job id>
+scontrol show job <job id> #record run time and jobstate
 ``
+```
+nano slurm-*.out #the out file logs the console outputs of the pipeline
+#record 2 resfinder lines, 1 mlst line & terminal message
+```
+## LOOK AT METADATA
+```
+nano md_cols.R #man nano
+```
+### cut and paste Rscript into file md_cols.R
+```
+#!/usr/bin/env Rscript
+
+args <- commandArgs(trailingOnly = T); if (length(args) != 2) {stop("This script requires a 2 column index arguments; exiting", call. = F)}
+first_column <- args[1]; last_column <- args[2]
+md <- read.delim("results/metadata.txt", row.names = NULL)
+md[1:7, first_column:last_column]
+```
+### ctrl + X to close file md_cols.R
+### print column sets from the result to the console
+```
+apptainer exec $HOME/software/geacont Rscript md_cols.R 1 4 #columns 1 through 4
+```
+```
+apptainer exec $HOME/software/geacont Rscript md_cols.R 13 14
+```
+```
+apptainer exec $HOME/software/geacont Rscript md_cols.R 15 16
+```
