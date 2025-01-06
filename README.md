@@ -4,10 +4,9 @@
 #precedes comment. does not run
 ssh atlas-login #check step method on mac https://scinet.usda.gov/guides/access/ssh-login
 ```
-### these don't have copy icons because of user specific parameters
-``
-srun -n 36 -A purdue_probiotic_16s --mem=270G --pty --preserve-env bash #man srun
-``
+```
+srun -n 4 --account=sandbox --mem=20G --pty --preserve-env bash #man srun
+```
 ## PROJECT
 ```
 wd=$(pwd) #set a working directory parameter for your session
@@ -73,13 +72,14 @@ cd $wd/webinar
 * `-q` queue (also called partitions) https://www.hpc.msstate.edu/computing/atlas/
 * `-a` account The same as your scinet project name https://scinet.usda.gov/guides/data/storage#project-directories
 * `-c` cores The number of cores per node on atlas is lower than the pipeline default https://scinet.usda.gov/guides/use/resource-allocation#allocation-of-cores
-
-`$HOME/software/GEAbash -i $wd/webinar/data/ecoli1,$wd/webinar/data/senterica1 -I contigs -q atlas -a gaur_genome_assembly -c 48`
-
+```
+$HOME/software/GEAbash -i $wd/webinar/data/ecoli1,$wd/webinar/data/senterica1 -I contigs -q atlas -a sandbox -c 48
+```
 * run the pipeline on the two folders
 * record batch number and time
 * available input types are `paired-fqgz` (default), `contigs`, 6 long read types: `nano-raw`, `nano-corr`, `nano-hq`, `pacbio-raw`, `pacbio-corr`, `pacbio-hifi` (unassembled long read sequencing in FASTA or FASTQ format, gz compressed or uncompressed)
 ## GET INFORMATION FROM THE RUN
+### does not have a copy icon because of user specific parameters
 ``
 scontrol show job <job id> #record run time and jobstate
 ``
