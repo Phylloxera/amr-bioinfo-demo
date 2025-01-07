@@ -74,9 +74,8 @@ cd $wd/webinar
 * `-q` queue (also called partitions) https://www.hpc.msstate.edu/computing/atlas/
 * `-a` account The same as your scinet project name https://scinet.usda.gov/guides/data/storage#project-directories
 * `-c` cores The number of cores per node on atlas is lower than the pipeline default https://scinet.usda.gov/guides/use/resource-allocation#allocation-of-cores
-``
-$HOME/software/GEAbash -i $wd/webinar/data/ecoli1,$wd/webinar/data/senterica1 \
--I contigs -q atlas -a sandbox -c 48
+* ``
+$HOME/software/GEAbash -i $wd/webinar/data/ecoli1,$wd/webinar/data/senterica1 -I contigs -q atlas -a sandbox -c 48
 ``
 * run the pipeline on the two folders
 * record batch number and time
