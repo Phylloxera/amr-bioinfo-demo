@@ -4,11 +4,12 @@
 ```
 ssh atlas-login
 ```
-```
+### does not have a copy icon because of user specific parameters. `--account=sandbox` should work if you do not have a project https://scinet.usda.gov/guides/data/quotas#quotas-on-home-and-project-directories 
+``
 #precedes comment. does not run on linux
 srun -n 4 --account=sandbox --mem=20G --pty --preserve-env bash #man srun
-```
-## PROJECT
+``
+## WEBINAR DIRECTORY TO STORE FILES ASSOCIATED WITH THIS DEMO
 ```
 wd=$(pwd) #set a working directory parameter for your session
 mkdir webinar #make directory
@@ -80,7 +81,6 @@ $HOME/software/GEAbash -i $wd/webinar/data/ecoli1,$wd/webinar/data/senterica1 -I
 * record batch number and time
 * available input types are `paired-fqgz` (default), `contigs`, 6 long read types: `nano-raw`, `nano-corr`, `nano-hq`, `pacbio-raw`, `pacbio-corr`, `pacbio-hifi` (unassembled long read sequencing in FASTA or FASTQ format, gz compressed or uncompressed)
 ## GET INFORMATION FROM THE RUN
-### does not have a copy icon because of user specific parameters
 ``
 scontrol show job <job id> #record run time and jobstate
 ``
