@@ -1,10 +1,11 @@
 # amr-bioinfo-demo
 ## SSH AND INTERACTIVE SESSION
+### check small step method https://scinet.usda.gov/guides/access/ssh-login
 ```
-#precedes comment. does not run
-ssh atlas-login #check step method on mac https://scinet.usda.gov/guides/access/ssh-login
+ssh atlas-login
 ```
 ```
+#precedes comment. does not run on linux
 srun -n 4 --account=sandbox --mem=20G --pty --preserve-env bash #man srun
 ```
 ## PROJECT
