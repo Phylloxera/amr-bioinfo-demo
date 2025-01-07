@@ -1,12 +1,12 @@
 # amr-bioinfo-demo
 ## SSH AND INTERACTIVE SESSION
-### check small step method https://scinet.usda.gov/guides/access/ssh-login
+* check small step method https://scinet.usda.gov/guides/access/ssh-login
 ```
 ssh atlas-login
 ```
-### does not have a copy icon because of user specific parameters. `--account=sandbox` should work if you do not have a project https://scinet.usda.gov/guides/data/quotas#quotas-on-home-and-project-directories 
+* does not have a copy icon because of user specific parameters. `--account=sandbox` should work if you do not have a project https://scinet.usda.gov/guides/data/quotas#quotas-on-home-and-project-directories
+* #precedes comment. does not run on linux
 ``
-#precedes comment. does not run on linux
 srun -n 4 --account=sandbox --mem=20G --pty --preserve-env bash #man srun
 ``
 ## WEBINAR DIRECTORY TO STORE FILES ASSOCIATED WITH THIS DEMO
