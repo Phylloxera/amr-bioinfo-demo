@@ -22,6 +22,12 @@ mkdir data pipeline #make two directories called data and pipeline
 cd pipeline; curl -L -O https://github.com/Phylloxera/GEA-dev/releases/latest/download/geacont.tgz #separate two commands with a semicolon.
 ```
 ```
+if [ "$HOME/software" ]; then
+    echo "$HOME/software exists."
+    else mkdir "$HOME/software"
+fi
+```
+```
 tar -xzvf geacont.tgz -C $HOME/software/ #Extract the container to your $HOME/software directory
 ```
 ```
