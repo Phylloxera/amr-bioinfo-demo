@@ -87,7 +87,7 @@ scontrol show job <job id> #record run time and jobstate
 ``
 ```
 head slurm-*.out -n5; tail slurm-*.out -n5 #the out file logs the console outputs of the pipeline
-#record 2 resfinder lines, 1 mlst line & terminal message
+#make a note of the terminal message
 ```
 ## LOOK AT METADATA
 ```
