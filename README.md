@@ -116,4 +116,3 @@ apptainer exec $HOME/software/geacont Rscript md_cols.R 15 16
 ```
 exit
 ```
-```
