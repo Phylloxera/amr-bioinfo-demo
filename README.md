@@ -103,7 +103,7 @@ md <- read.delim("results/metadata.txt", row.names = NULL)
 md[1:7, first_column:last_column]
 ```
 ### ctrl + X to close file md_cols.R
-### print column sets from the result to the console
+### print column sets from the result to the console and exit atlas
 ```
 apptainer exec $HOME/software/geacont Rscript md_cols.R 1 4 #columns 1 through 4
 ```
@@ -112,4 +112,8 @@ apptainer exec $HOME/software/geacont Rscript md_cols.R 13 14
 ```
 ```
 apptainer exec $HOME/software/geacont Rscript md_cols.R 15 16
+```
+```
+exit
+```
 ```
