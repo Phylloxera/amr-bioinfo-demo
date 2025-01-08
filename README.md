@@ -4,14 +4,9 @@
 ```
 ssh atlas-login
 ```
-* does not have a copy icon because of user specific parameters. `--account=sandbox` should work if you do not have a project https://scinet.usda.gov/guides/data/quotas#quotas-on-home-and-project-directories
-* #precedes comment. does not run on linux
-
-``
-srun -n 4 --account=sandbox --mem=20G --pty --preserve-env bash #man srun
-``
 ## WEBINAR DIRECTORY TO STORE FILES ASSOCIATED WITH THIS DEMO
 ```
+# a hashtag means 'everything after is a comment; do not run'
 wd=$(pwd) #set a working directory parameter for your session
 mkdir webinar #make directory
 ```
@@ -75,6 +70,7 @@ cd $wd/webinar
 * `-q` queue (also called partitions) https://www.hpc.msstate.edu/computing/atlas/
 * `-a` account The same as your scinet project name https://scinet.usda.gov/guides/data/storage#project-directories
 * `-c` cores The number of cores per node on atlas is lower than the pipeline default https://scinet.usda.gov/guides/use/resource-allocation#allocation-of-cores
+* does not have a copy icon because of user specific parameters.
 
 ``
 $HOME/software/GEAbash -i $wd/webinar/data/ecoli1,$wd/webinar/data/senterica1 -I contigs -q atlas -a sandbox -c 48
