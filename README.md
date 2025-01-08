@@ -1,5 +1,5 @@
 # amr-bioinfo-demo
-## SSH AND INTERACTIVE SESSION
+## SSH
 * check small step method https://scinet.usda.gov/guides/access/ssh-login
 ```
 ssh atlas-login
