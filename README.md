@@ -86,7 +86,7 @@ $HOME/software/GEAbash -i $wd/webinar/data/ecoli1,$wd/webinar/data/senterica1 -I
 scontrol show job <job id> #record run time and jobstate
 ``
 ```
-nano slurm-*.out #the out file logs the console outputs of the pipeline
+head slurm-*.out -n5; tail slurm-*.out -n5 #the out file logs the console outputs of the pipeline
 #record 2 resfinder lines, 1 mlst line & terminal message
 ```
 ## LOOK AT METADATA
